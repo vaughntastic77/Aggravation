@@ -64,17 +64,17 @@ dp = 42
 cx = 387
 cy = 385
 center = np.array([cx,cy])
-startouts = np.array([[cx-2*dp,cy+7*dp],[cx-7*dp,cy-2*dp],[cx+2*dp,cy-7*dp],[cx+7*dp,cy+2*dp]])
+starts = np.array([[cx-2*dp,cy+7*dp],[cx-7*dp,cy-2*dp],[cx+2*dp,cy-7*dp],[cx+7*dp,cy+2*dp]])
 homeins = np.array([[cx,cy+7*dp],[cx-7*dp,cy],[cx,cy-7*dp],[cx+7*dp,cy]])
 shortcuts = np.array([[cx+2*dp,cy+2*dp],[cx-2*dp,cy+2*dp],[cx-2*dp,cy-2*dp],[cx+2*dp,cy-2*dp]])
 shortcuts = np.append(shortcuts,np.append(shortcuts,shortcuts,axis=0),axis=0)
 
-# Starting positions
-starts = np.zeros((4,4,2))
-starts[0] = [[cx-6*dp-16,cy+7*dp-24],[cx-7*dp-16,cy+6*dp-24],[cx-6*dp-16,cy+5*dp-24],[cx-5*dp-16,cy+6*dp-24]]
-starts[1] = [[cx-6*dp-17,cy-4*dp-21],[cx-7*dp-17,cy-5*dp-21],[cx-6*dp-17,cy-6*dp-21],[cx-5*dp-17,cy-5*dp-21]]
-starts[2] = [[cx+7*dp-28,cy-4*dp-18],[cx+8*dp-28,cy-5*dp-18],[cx+7*dp-28,cy-6*dp-18],[cx+6*dp-28,cy-5*dp-18]]
-starts[3] = [[cx+7*dp-28,cy+7*dp-28],[cx+8*dp-28,cy+6*dp-28],[cx+7*dp-28,cy+5*dp-28],[cx+6*dp-28,cy+6*dp-28]]
+# Starting base positions
+bases = np.zeros((4,4,2))
+bases[0] = [[cx-6*dp-16,cy+7*dp-24],[cx-7*dp-16,cy+6*dp-24],[cx-6*dp-16,cy+5*dp-24],[cx-5*dp-16,cy+6*dp-24]]
+bases[1] = [[cx-6*dp-17,cy-4*dp-21],[cx-7*dp-17,cy-5*dp-21],[cx-6*dp-17,cy-6*dp-21],[cx-5*dp-17,cy-5*dp-21]]
+bases[2] = [[cx+7*dp-28,cy-4*dp-18],[cx+8*dp-28,cy-5*dp-18],[cx+7*dp-28,cy-6*dp-18],[cx+6*dp-28,cy-5*dp-18]]
+bases[3] = [[cx+7*dp-28,cy+7*dp-28],[cx+8*dp-28,cy+6*dp-28],[cx+7*dp-28,cy+5*dp-28],[cx+6*dp-28,cy+6*dp-28]]
 
 # Home positions
 homes = np.zeros((4,4,2))
@@ -88,13 +88,13 @@ for i in range(0,4):
 nextPos = np.array([[cx-2*dp,cy+7*dp],[cx-2*dp,cy+6*dp],[cx-2*dp,cy+5*dp],[cx-2*dp,cy+4*dp],[cx-2*dp,cy+3*dp],[cx-2*dp,cy+2*dp],[cx-3*dp,cy+2*dp],[cx-4*dp,cy+2*dp],[cx-5*dp,cy+2*dp],[cx-6*dp,cy+2*dp],[cx-7*dp,cy+2*dp],[cx-7*dp,cy+1*dp],[cx-7*dp,cy+0*dp],[cx-7*dp,cy-1*dp],[cx-7*dp,cy-2*dp],[cx-6*dp,cy-2*dp],[cx-5*dp,cy-2*dp],[cx-4*dp,cy-2*dp],[cx-3*dp,cy-2*dp],[cx-2*dp,cy-2*dp],[cx-2*dp,cy-3*dp],[cx-2*dp,cy-4*dp],[cx-2*dp,cy-5*dp],[cx-2*dp,cy-6*dp],[cx-2*dp,cy-7*dp],[cx-1*dp,cy-7*dp],[cx-0*dp,cy-7*dp],[cx+1*dp,cy-7*dp],[cx+2*dp,cy-7*dp],[cx+2*dp,cy-6*dp],[cx+2*dp,cy-5*dp],[cx+2*dp,cy-4*dp],[cx+2*dp,cy-3*dp],[cx+2*dp,cy-2*dp],[cx+3*dp,cy-2*dp],[cx+4*dp,cy-2*dp],[cx+5*dp,cy-2*dp],[cx+6*dp,cy-2*dp],[cx+7*dp,cy-2*dp],[cx+7*dp,cy-1*dp],[cx+7*dp,cy+0*dp],[cx+7*dp,cy+1*dp],[cx+7*dp,cy+2*dp],[cx+6*dp,cy+2*dp],[cx+5*dp,cy+2*dp],[cx+4*dp,cy+2*dp],[cx+3*dp,cy+2*dp],[cx+2*dp,cy+2*dp],[cx+2*dp,cy+3*dp],[cx+2*dp,cy+4*dp],[cx+2*dp,cy+5*dp],[cx+2*dp,cy+6*dp],[cx+2*dp,cy+7*dp],[cx+1*dp,cy+7*dp],[cx-0*dp,cy+7*dp],[cx-1*dp,cy+7*dp]])
 nextPos = np.append(nextPos,np.append(nextPos,nextPos,axis=0),axis=0)
 
-# Actual positions matrix (initially at start)
-pos = np.copy(starts)
+# Actual positions matrix (initially at base)
+pos = np.copy(bases)
 optPos = np.zeros((4,3,2))
 
-# At start, startout, home, and center boolean matrix
-atStart = np.array([[True]*4]*4)
-atStartout = np.array([[False]*4]*4)
+# At base, start, home, and center boolean matrix
+atBase = np.array([[True]*4]*4)
+atStart = np.array([[False]*4]*4)
 atHome = np.array([[False]*4]*4)
 atCenter = np.array([[False]*4]*4)
 
@@ -165,20 +165,20 @@ def draw(opts):
 # Write data to savedGame.npz
 #----------------------------------------------------------------------------------------------------------------------
 def saveGame():
-    np.savez(save_dir+"/savedGame.npz",pos=pos,atStart=atStart,atStartout=atStartout,atHome=atHome,atCenter=atCenter,turn=turn,nPlayers=nPlayers,computers=computers)
+    np.savez(save_dir+"/savedGame.npz",pos=pos,atBase=atBase,atStart=atStart,atHome=atHome,atCenter=atCenter,turn=turn,nPlayers=nPlayers,computers=computers)
 
 #----------------------------------------------------------------------------------------------------------------------
 # Load data from savedGame.npz
 #----------------------------------------------------------------------------------------------------------------------
 def loadGame():
-    global pos, atStart, atStartout, atHome, atCenter, turn, nPlayers, computers
+    global pos, atBase, atStart, atHome, atCenter, turn, nPlayers, computers
     if os.path.isfile(save_dir+"/savedGame.npz"):
         fLoaded = np.load(save_dir+"/savedGame.npz")
-        # Actual positions matrix (initially at start)
+        # Actual positions matrix
         pos = fLoaded["pos"]
-        # At start, startout, home, and center boolean matrix
+        # At base, start, home, and center boolean matrix
+        atBase = fLoaded["atBase"]
         atStart = fLoaded["atStart"]
-        atStartout = fLoaded["atStartout"]
         atHome = fLoaded["atHome"]
         atCenter = fLoaded["atCenter"]
         # Color's turn [Red,Blue,Green,Yellow]
@@ -193,12 +193,12 @@ def loadGame():
 # Reinitialize positions
 #----------------------------------------------------------------------------------------------------------------------
 def newGame():
-    global pos, atStart, atStartout, atHome, atCenter, turn, nPlayers, computers
-    # Actual positions matrix (initially at start)
-    pos = np.copy(starts)
-    # At start, startout, home, and center boolean matrix
-    atStart = np.array([[True]*4]*4)
-    atStartout = np.array([[False]*4]*4)
+    global pos, atBase, atStart, atHome, atCenter, turn, nPlayers, computers
+    # Actual positions matrix (initially at base)
+    pos = np.copy(bases)
+    # At base, start, home, and center boolean matrix
+    atBase = np.array([[True]*4]*4)
+    atStart = np.array([[False]*4]*4)
     atHome = np.array([[False]*4]*4)
     atCenter = np.array([[False]*4]*4)
     # Color's turn [Red,Blue,Green,Yellow]
@@ -211,20 +211,20 @@ def newGame():
 # Gather all possible moves for given n and store in optPos
 #----------------------------------------------------------------------------------------------------------------------
 def moves(n):
-    global pos, optPos, atStart, atStartout, atHome
+    global pos, optPos, atBase, atStart, atHome
     optPos = np.zeros((4,3,2))
     canMove = np.array([True]*4)
     # Get each marble move options
     for m in range(0,4):
         optPos[m,0] = pos[turn,m]
-        # Check if in start or startout
-        if atStart[turn,m]:
+        # Check if in base or start
+        if atBase[turn,m]:
             if n == 1 or n == 6:
-                # Check for same color in startout
-                if np.invert(atStartout[turn]).all(axis=0): 
-                    optPos[m,0] = startouts[turn]
+                # Check for same color in start
+                if np.invert(atStart[turn]).all(axis=0): 
+                    optPos[m,0] = starts[turn]
             else:
-                optPos[m,0] = starts[turn,m]
+                optPos[m,0] = bases[turn,m]
         # Get center move options
         elif atCenter[turn,m]:
             if n==1:
@@ -268,18 +268,18 @@ def moves(n):
                         breakout = True
                 if breakout:
                     break
-        # Center option from startout
+        # Center option from start
         clearPath = True
         if np.array_equal(optPos[m,0],pos[turn,m]):
             clearPath = False
             for i in range(0,4):
-                if np.array_equal(pos[turn,i],nextPos[6 + np.where((nextPos == startouts[turn]).all(axis=1))[0][0]]):
+                if np.array_equal(pos[turn,i],nextPos[6 + np.where((nextPos == starts[turn]).all(axis=1))[0][0]]):
                     clearPath = True
-        if atStartout[turn,m] and n==6 and np.invert(atCenter[turn]).all(axis=0) and clearPath:
+        if atStart[turn,m] and n==6 and np.invert(atCenter[turn]).all(axis=0) and clearPath:
             optPos[m,2] = center
-        # Check for landing on other color on its own startout
+        # Check for landing on other color on its own start
         for c in range(0,4):
-            if np.array_equal(optPos[m,0],startouts[c]) and atStartout[c].any():
+            if np.array_equal(optPos[m,0],starts[c]) and atStart[c].any():
                 optPos[m,0] = pos[turn,m]
         # Get shortcut move option if on shortcut
         for i in range(0,4):
@@ -348,17 +348,17 @@ def moves(n):
                     elif event.key == pg.K_4 and canMove[3]:
                         m = 3
                         marb_move(m,n)
-    # Check for landing on other color to send to start
+    # Check for landing on other color to send to base
     for c in range(0,4):
         if not (c == turn):
             for moc in range(0,4):
                 if np.array_equal(pos[turn,m],pos[c,moc]):
-                    pos[c,moc] = starts[c,moc]
+                    pos[c,moc] = bases[c,moc]
     # Update position booleans
     for c in range(0,4):
         for m in range(0,4):
-            atStart[c,m] = np.array_equal(pos[c,m],starts[c,m])
-            atStartout[c,m] = np.array_equal(pos[c,m],startouts[c])
+            atBase[c,m] = np.array_equal(pos[c,m],bases[c,m])
+            atStart[c,m] = np.array_equal(pos[c,m],starts[c])
             for i in range(0,4):
                 atHome[c,m] = np.array_equal(pos[c,m],homes[c,i])
                 if atHome[c,m] == True:
@@ -386,7 +386,7 @@ def marb_move(m,n):
     while o < 0:
         # Computer chooses to move shortcuts then regular
         if computers and turn >= nPlayers:
-            if atStartout[turn,m] and (not np.array_equal(optPos[m,2],[0,0])):
+            if atStart[turn,m] and (not np.array_equal(optPos[m,2],[0,0])):
                 o = 2
             elif (not np.array_equal(optPos[m,1],[0,0])) and (not np.array_equal(pos[turn,m],shortcuts[turn])) and (not atCenter[turn,m]):
                 o = 1
