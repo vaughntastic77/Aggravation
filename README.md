@@ -19,7 +19,7 @@ There are two options for downloading and running the game:
 Download [aggravation.py](https://github.com/vaughntastic77/Aggravation/tree/main/aggravation.py) and [images](https://github.com/vaughntastic77/Aggravation/tree/main/images) into same directory and run.
 
 ## Option 2 (Mac only):
-Downlad [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/dist/Aggravation.app) from the [dist](https://github.com/vaughntastic77/Aggravation/tree/main/dist) folder and run.
+Downlad [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist/Aggravation.app) from the [dist](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist) folder and run.
 
 # Game Instructions
 
