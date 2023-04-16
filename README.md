@@ -16,10 +16,10 @@ The classic Aggravation board game written in Python with [Pygame](https://www.p
 There are two options for downloading and running the game:
 
 ## Option 1
-Download [aggravation.py](https://github.com/vaughntastic77/Aggravation/tree/main/aggravation.py) and [images](https://github.com/vaughntastic77/Aggravation/tree/main/images) into same directory and run.
+Download just [aggravation.py](https://github.com/vaughntastic77/Aggravation/tree/main/aggravation.py) and [images](https://github.com/vaughntastic77/Aggravation/tree/main/images) into same directory and run.
 
-## Option 2 (Mac only):
-Downlad [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist/Aggravation.app) from the [dist](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist) folder and run.
+## Option 2 (Mac ARM only):
+Downlad ZIP and extract [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist/Aggravation.app) from the [dist](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist) folder and run.
 
 # Game Instructions
 
