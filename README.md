@@ -66,4 +66,6 @@ A player wins when all 4 marbles are home. When entering home, you must reach ea
 
 # Known Bugs
 
-All known bugs are currently resolved.
+All known fixable bugs are currently resolved.
+
+1. There is currently a bug with pygame that sometimes causes the display to not update correctly.
