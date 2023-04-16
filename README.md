@@ -1,11 +1,56 @@
 # Aggravation
 
-he classic Aggravation board game written in Python with Pygame
+The classic Aggravation board game written in Python with Pygame.
 
-## Game Rules
+## Table of Contents
+
+1. [Package Info and Use](#Package-Info-and-Use)
+2. [Game Instructions](#Game-Instructions)
+3. [Game Rules](#Game-Rules)
+4. [Known Bugs](#Known-Bugs)
+
+## Package Info and Use
+
+There are two options for downloading and running the game:
+
+Option 1:
+Download aggravation.py and images into same directory and run.
+
+Option 2 (Mac only):
+Downlad the Aggravation.app from the dist folder and run.
+
+# Game Instructions
 
 Stuff
 
-## Known Bugs
+# Game Rules
+
+## Objective:
+Be the first to move all 4 of your marbles from your base to home.
+
+## Play the game:
+Roll the die on your turn and try to start or move one of your marbles. Take another turn anytime a 6 is rolled.
+
+You must roll a 1 or 6 to start a marble. Only one marble can occupy the start.
+
+Once a marble is started, move each turn the count of the die clockwise around the board.
+
+Anytime you roll a 1 or 6 you can start another marble if the space is open.
+
+You can jump over openents marbles counting the space. You can land on an opponents marble to "aggravate" them and send their marble back to base. You CANNOT aggravate a player on their own start.
+
+You CANNOT jump over or land on your OWN marble. If you cannot move a marble the full die count, then it cannot move. If you cannot move any marbles, your turn is over.
+
+## Shortcuts:
+You can use the white inside corners and black center as a shortcut to home. You must land on one of the spaces to use them on your next turn.
+
+When on the white shortcuts, you can move clockwise around the white spaces the count of your die. When you wish to leave, you must do so on your next turn.
+
+The center space can be accessed from your own start or the white shortcuts. If you roll a 6, you can move a marble that is at your start directly to the center. Otherwise, you must roll a 1 to enter the center from the white shortcuts. You must roll a 1 to leave the center onto any white shortcut.
+
+## Winning:
+A player wins when all 4 marbles are home. When entering home, you must reach each space by the exact count.
+
+# Known Bugs
 
 All known bugs are currently resolved.
