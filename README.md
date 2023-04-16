@@ -1,6 +1,8 @@
 # Aggravation
 
-The classic Aggravation board game written in Python with Pygame.
+The classic Aggravation board game written in Python with [Pygame](https://www.pygame.org/wiki/about).
+
+![Alt text](images/board.png)
 
 ## Table of Contents
 
@@ -9,19 +11,30 @@ The classic Aggravation board game written in Python with Pygame.
 3. [Game Rules](#Game-Rules)
 4. [Known Bugs](#Known-Bugs)
 
-## Package Info and Use
+# Package Info and Use
 
 There are two options for downloading and running the game:
 
-Option 1:
-Download aggravation.py and images into same directory and run.
+## Option 1
+Download [aggravation.py](https://github.com/vaughntastic77/Aggravation/tree/main/aggravation.py) and [images](https://github.com/vaughntastic77/Aggravation/tree/main/images) into same directory and run.
 
-Option 2 (Mac only):
-Downlad the Aggravation.app from the dist folder and run.
+## Option 2 (Mac only):
+Downlad [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/dist/Aggravation.app) from the [dist](https://github.com/vaughntastic77/Aggravation/tree/main/dist) folder and run.
 
 # Game Instructions
 
-Stuff
+The game opens to the main menu. Here you can choose to resume the last saved game or start a new game.
+
+When you choose a new game, you can choose 1-4 players and then choose if you want computers to fill the rest.
+
+Instructions are given in game, but the general flow is as follows:
+1. Press `Space` to roll the die
+2. Choose an available marble to move by pressing `1`, `2`, `3`, or `4`.
+3. Choose a which space to move the chosen marble to by pressing `1`, `2`, or `3`, or press `Esc` to go back to choosing a marble.
+
+At the start of any turn, the pause menu can be opened with `P`. Here you can choose to resume `R`, save and quit `S`, or quit to menu `Esc`.
+
+When a player wins, you can return to the menu `Space` or continue playing `C`.
 
 # Game Rules
 
