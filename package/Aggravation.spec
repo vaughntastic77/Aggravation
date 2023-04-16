@@ -8,7 +8,7 @@ a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('images', 'images')],
+    datas=[('../images', 'images')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -41,11 +41,11 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['images/board.png'],
+    icon=['../images/board.png'],
 )
 app = BUNDLE(
     exe,
     name='Aggravation.app',
-    icon='images/board.png',
+    icon='../images/board.png',
     bundle_identifier=None,
 )
