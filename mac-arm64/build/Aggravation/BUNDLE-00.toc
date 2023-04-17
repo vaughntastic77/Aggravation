@@ -1,0 +1,3 @@
+([('Aggravation',
+   '/Users/vaughntastic/Desktop/My Stuff/Aggravation/package/dist/Aggravation',
+   'EXECUTABLE')],)

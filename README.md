@@ -15,11 +15,17 @@ The classic Aggravation board game written in Python with [Pygame](https://www.p
 
 There are two options for downloading and running the game:
 
-## Option 1
+## Option 1 (Run with python)
 Download just [aggravation.py](https://github.com/vaughntastic77/Aggravation/tree/main/aggravation.py) and [images](https://github.com/vaughntastic77/Aggravation/tree/main/images) into same directory and run.
 
-## Option 2 (Mac ARM only):
-Downlad ZIP and extract [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist/Aggravation.app) from the [dist](https://github.com/vaughntastic77/Aggravation/tree/main/package/dist) folder and run.
+## Option 2 (Single file .app/.exe):
+Downlad ZIP of repository and open your OS folder:
+### Mac (ARM)
+Extract and run [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/mac-arm64/dist/Aggravation.app) from [mac-arm64/dist](https://github.com/vaughntastic77/Aggravation/tree/main/mac-arm64/dist).
+### Mac (Intel)
+Extract and run [Aggravation.app](https://github.com/vaughntastic77/Aggravation/tree/main/mac-x86_64/dist/Aggravation.app) from [mac-x86_64/dist](https://github.com/vaughntastic77/Aggravation/tree/main/mac-x86_64/dist).
+### Windows
+Extract and run [Aggravation.exe](https://github.com/vaughntastic77/Aggravation/tree/main/win64/dist/Aggravation.exe) from [win64/dist](https://github.com/vaughntastic77/Aggravation/tree/main/win64/dist).
 
 # Game Instructions
 
