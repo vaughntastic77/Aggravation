@@ -1,2 +1,4 @@
-package/build/
+mac-arm64/build/
+mac-x86_64/build/
+win64/build/
 *.npz
