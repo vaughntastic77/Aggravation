@@ -434,7 +434,7 @@ def menu():
             # Close window
             if event.type == pg.QUIT:
                 pg.quit()
-                quit()
+                sys.exit()
             # Key pressed
             elif event.type == pg.KEYDOWN:
                 # Load game
@@ -446,7 +446,7 @@ def menu():
                 # Quit (ESC)
                 elif event.key == pg.K_ESCAPE:
                     pg.quit()
-                    quit()
+                    sys.exit()
 
 #----------------------------------------------------------------------------------------------------------------------
 # Show new game menu and wait for selection
@@ -482,7 +482,7 @@ def newMenu():
             # Close window
             if event.type == pg.QUIT:
                 pg.quit()
-                quit()
+                sys.exit()
             # Key pressed
             elif event.type == pg.KEYDOWN:
                 # One Player
@@ -579,7 +579,7 @@ def pause():
             # Close window
             if event.type == pg.QUIT:
                 pg.quit()
-                quit()
+                sys.exit()
             # Key pressed
             elif event.type == pg.KEYDOWN:
                 # Resume game
@@ -670,7 +670,7 @@ def main():
                             # Close window
                             if event.type == pg.QUIT:
                                 pg.quit()
-                                quit()
+                                sys.exit()
                             # Key pressed
                             elif event.type == pg.KEYDOWN:
                                 # Back to menu
@@ -683,7 +683,7 @@ def main():
                                 # Quit (ESC)
                                 elif event.key == pg.K_ESCAPE:
                                     pg.quit()
-                                    quit()
+                                    sys.exit()
 
             # Display game
             draw(1)
